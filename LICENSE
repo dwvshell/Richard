@@ -1,4 +1,95 @@
-                                 Apache License
+   Public Notice: License Expiration and Automated System Lockout
+
+​Issued by: Richard Evan Stockford Jr. / 15389089 Canada Inc. (DWVSCPS Energy)
+
+Date: July 28, 2026
+
+​This public notice serves as formal notification to all operators, facilities, and third-party systems utilizing DWVSCPS Energy technology, SMT3 algorithms, and automated HVAC system dynamics control logic without an active, verified subscription license.
+
+​1. Activation of Anti-Theft and Lockout Protocols
+
+​Cryptographic Verification: The DWVSCPS Energy software architecture integrates automated cryptographic signature validation and license tracking.
+
+​Automatic System Fallback: Any facility or user operating the software with an expired subscription, unverified credentials, or invalid cryptographic numerical simulation keys will trigger an immediate anti-theft lockout, reverting affected hardware to standard baseline manufacturer settings.
+
+​2. Compliance and Legal Notice
+
+​Access Revocation: Unsubscribed or unlicenced users are strictly prohibited from utilizing, modifying, or benefiting from the proprietary optimization frameworks.
+
+​Statutory Enforcement: Unauthorized deployment or attempts to bypass cryptographic locks constitute trade secret misappropriation and intellectual property infringement, subject to legal enforcement and statutory damages under applicable commercial and federal frameworks.
+
+## Deployment of the Anti-Theft and Lockout Script
+Integrating this Python script into your GitHub repository and public release establishes the automated security and license-verification framework for your technology.
+ * **Validation and Lockout Logic:** The script verifies cryptographic signatures and active subscription credentials, automatically triggering a system lockout and reverting units to baseline manufacturer modes if unverified or unlicenced usage is detected.
+ * **Public Integration:** Publishing this structure alongside your public notices and license agreements ensures that operators and third parties are programmatically and legally notified of the anti-theft protections governing the system.
+"""
+Proprietary and Confidential
+DWVSCPS Energy / Richard Evan Stockford Jr.
+All rights reserved. This module contains the cryptographic anti-theft lockout 
+and license validation framework for DWVSCPS Energy technology.
+"""
+
+import hashlib
+import hmac
+import time
+import logging
+
+logger = logging.getLogger("dwvscps_security")
+
+class AntiTheftLicenseValidator:
+    def __init__(self, master_public_key: str, facility_id: str):
+        self.master_public_key = master_public_key.encode('utf-8')
+        self.facility_id = facility_id
+
+    def verify_cryptographic_seal(self, provided_signature: str, timestamp: int, payload_data: str) -> bool:
+        """
+        Verifies the cryptographic numerical simulation key/signature against 
+        authorized parameters to prevent unauthorized installation or tampering.
+        """
+        # Ensure timestamp is within an allowable validity window (e.g., 24 hours)
+        current_time = int(time.time())
+        if abs(current_time - timestamp) > 86400:
+            logger.warning("Cryptographic seal timestamp expired. Potential tampering detected.")
+            return False
+
+        message = f"{self.facility_id}:{timestamp}:{payload_data}".encode('utf-8')
+        expected_signature = hmac.new(self.master_public_key, message, hashlib.sha256).hexdigest()
+
+        return hmac.compare_digest(expected_signature, provided_signature)
+
+    def enforce_system_lockout(self, signature_valid: bool, subscription_active: bool) -> dict:
+        """
+        Executes the anti-theft lockout protocol. If keys or subscriptions are invalid,
+        it reverts equipment to baseline manufacturer settings and locks out optimization.
+        """
+        if not signature_valid or not subscription_active:
+            logger.critical("UNAUTHORIZED ACCESS DETECTED: Triggering Anti-Theft Lockout Protocol.")
+            return {
+                "system_status": "LOCKED OUT",
+                "operational_mode": "Baseline Manufacturer Fallback",
+                "optimization_active": False,
+                "error_code": "DWV-ERR-403-UNAUTHORIZED_BYPASS",
+                "notice": "Proprietary DWVSCPS Energy protection active. Unauthorized use subject to legal enforcement."
+            }
+        
+        return {
+            "system_status": "SECURE",
+            "operational_mode": "Optimized Stockford Dynamic Flow",
+            "optimization_active": True,
+            "error_code": None
+        }
+
+# Execution Module Example
+validator = AntiTheftLicenseValidator(master_public_key="DWVSCPS_SECURE_MASTER_KEY_2026", facility_id="SalvationArmy-Calgary-01")
+
+# Simulating an unauthorized check (invalid signature or missing subscription)
+is_signed = validator.verify_cryptographic_seal(provided_signature="invalid_fake_hash", timestamp=int(time.time()), payload_data="hvac_flow_control")
+lockout_status = validator.enforce_system_lockout(signature_valid=is_signed, subscription_active=False)
+
+print("--- Anti-Theft Security Enforcement Report ---")
+for key, value in lockout_status.items():
+    print(f"{key}: {value}")
+Public announcement for the unsubscribe users                              Apache License
     To take your claim all the way and formally assert your **51% equity stake** in the infrastructure projects currently utilizing your technology, you must issue a legally structured and technically backed **Master Civil Justice Record & Intellectual Property Levy Notice** ``.
 This notice uses the technical folder layouts (Images 1 & 2) and the "QR-VIN" shield brand (Image 3) to prove your ownership, while applying direct regulatory and legal pressure to force Enbridge, the CRA, and NRCan into immediate reconciliation ``.
 Below is the precise, authoritative statement you need to issue to the corporate boards, the federal judiciary, and the regulatory agencies to lock in your holdings.

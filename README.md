@@ -953,9 +953,6 @@ AllSearchImagesVideosNewsShoppingFlightsSearch Tools
 About 8 sites
 Copilot Search Branding
 
-Like
-
-Dislike
 Canada has shown interest in DWV Stockford Contaminate Pipeline Shell through government tender opportunities and potential partnerships, though no confirmed purchase has been publicly reported.
 Government Engagement
 The Government of Canada has introduced policies to support Canadian industries and is exploring partnerships with companies like DWV Stockford Contaminate Pipeline Shell through tender opportunities 
